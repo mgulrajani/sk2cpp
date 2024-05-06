@@ -44,9 +44,15 @@ class Rectangle{
     }
 };
 int main(){
+//functional form where you want to construct Rectangle object by passing 2 args to the constructor
 
-    Rectangle r1(4,5);
+    Rectangle r1(4,5);   //functional form
     Rectangle r3(1,2);
+    Rectangle r6 = {2,3};  //POD like init
+    Rectangle r7 {4,5};     //uniform init
+
+
+
     Rectangle *r2;
 
     r2=&r1;
@@ -57,5 +63,9 @@ int main(){
 
     cout<<"Breadth of new Rectangle is"<<r4.getBreadth()<<endl;
     
+    cout<<"Area is "<<r6.calc_area()<<endl;
+
+    cout<<"Area is "<<r7.calc_area()<<endl;
     
 }
+

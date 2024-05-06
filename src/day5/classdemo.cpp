@@ -10,6 +10,7 @@ class Fan{
 public:
     //a constructor is  a special function which is called to allocate memory when an object is created
     Fan(int id,string b,string c,double p){
+        cout<<"Fan object created with id  brand color and price"<<endl;
         id=id;
         brand = b;
         color=c;
@@ -20,15 +21,17 @@ public:
 
      Fan(){
 
-
+        cout<<"Fan object created by a call to default constructor"<<endl;
      }
 
-     Fan(int id, string brand){
+     Fan(int id, string brand):id(id) ,brand(brand){}
+ /*         cout<<"Fan object created by a call to  constructor with id and brand"<<endl;
+  
             id =id;
             brand=brand;
 
      }
-
+ */
     void setId(int);
     void setColor(string);
     void setBrand(string);
@@ -58,7 +61,7 @@ void Fan::setColor(string col){
     color =col;
 }
 
-int Fan::getId(){
+int Fan::getId() {
     return id;
 }
 
@@ -71,9 +74,11 @@ string Fan::getColor(){
     return color;
 }
 
+
+
 int main(){
 
-    Fan kitchenFan;
+   /*  Fan kitchenFan;
     Fan room1Fan(2,"Usha2","Brown",3000);
     Fan room2Fan(3,"Usha3","Golden Brown",3500);
     kitchenFan.setId(1);
@@ -96,8 +101,34 @@ int main(){
     fan6->setPrice(2000);
     fan6->setId(232);
     fan6->setColor("red");
+   
+
+     cout<<fan5.getBrand();
 
 
+    Fan *fanptr;
+    fanptr=new Fan(11,"fanptr");
+    fanptr->setBrand("HpFan");
+    cout<<"\n"<<fanptr->getBrand()<<endl;
+ */
+    Fan *fans;
+
+    fans = new Fan[3]{{34,"fan1"},{45,"fan2"},{55,"fan3"}};
+
+    cout<<"\n Fan[0] Brand"<<endl;
+    cout<<fans[0].getBrand()<<endl;
+
+    fans[0].setColor("white");
+    fans[0].setPrice(999);
+
+    cout<<fans[0].getColor()<<endl;
+
+    cout<<fans[0].getPrice()<<endl;
+
+
+    
+
+    
 
 
 
