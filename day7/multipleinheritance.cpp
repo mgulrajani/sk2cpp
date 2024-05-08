@@ -6,6 +6,9 @@ class Polygon{
         int width,height;
     public:
         Polygon(int a,int b):width(a),height(b){}
+        int calc_area(){
+            cout<<"calculating area"<<endl;
+        }
 
 };
 class Print{
@@ -19,7 +22,10 @@ class Print{
 class Rectangle:public Polygon,public Print{
     public:
         Rectangle(int a,int b):Polygon(a,b){}
-        int calc_area(){return width*height;}
+        int calc_area(){
+            Polygon::calc_area();
+            
+            return width*height;}
 
 
 };
