@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 using namespace std;
 
 class Pet{
@@ -18,6 +19,11 @@ class Pet{
         }
         void printDetails(){
             cout<<"Name "<<name<<"Breed"<<breed<<endl;
+        }
+
+        friend ostream& operator<<(ostream &s,const Pet &pet){
+            return s << pet.name << pet.breed;
+
         }
         
 };
@@ -78,6 +84,26 @@ int main(){
   Dog dog("bolt","goldie",true,3);
 
   dog.printDetails();
+  Cat cat3("angel","Russian");  //constructor which takes name and breed
 
-    
-}
+  Dog dog2("tiger","lab",true,3);
+  
+  map<int,Pet> petmap;
+  petmap.insert(make_pair(1,dog));
+
+  petmap.insert(make_pair(2,cat));
+
+  petmap[3]=cat3;
+
+  petmap[4] = dog2;
+
+  map<int,Pet>::iterator iter1;
+
+  for(iter1= petmap.begin();iter1 != petmap.end();++iter1){
+    cout<<iter1->first ;
+    cout<<iter1->second<<endl;
+
+  }
+  return 0;
+
+  }

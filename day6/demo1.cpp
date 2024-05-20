@@ -1,5 +1,7 @@
+
 #include <iostream>
 #include <fstream>
+
 using namespace std;
 class Student{
     
@@ -22,41 +24,29 @@ class Student{
    }
 };
 
-
 int main(){
 
-ofstream file1("studentdata_obj.txt");
-ifstream file2("studentdata_obj.txt");
-
-
-if(!file1 || !file2){
-    cout<<"Error in the files";
-}
-Student hetal(111,"hetal",45);
-
-Student mitali(122,"mitali",66);
-
-Student hetalduplicate(hetal);
 Student newHetal;
 
-cout<<hetal.getDetails()<<endl;
-cout<<mitali.getDetails()<<endl;
-cout<<hetalduplicate.getDetails()<<endl;
+ifstream file2("studentdata_obj.txt");
 
-file1.write((char *)&hetal,sizeof(hetal));
+if (!file2){
+    cout<<"Error";
+}
 
-cout<<"successfully written the data to the file"<<endl;
+else{
 
 file2.read((char *)&newHetal,sizeof(newHetal));
 
 
-cout<<"reading data from the file  "<<newHetal.id;
+cout<<"reading data from the file  ";
+cout<<newHetal.id;
+cout<<newHetal.name;
+cout<<newHetal.marks;
 
 
 
 
-file1.close();
-file2.close();
+}
 return 0;
-
 }
